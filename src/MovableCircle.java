@@ -6,6 +6,7 @@ public class MovableCircle implements Movable, Cloneable, Comparable<MovableCirc
         this.radius  = radius;
         this.center = new MovablePoint(x,y,xSpeed,ySpeed);
 
+
     }
 
     public int getRadius() {
@@ -31,22 +32,22 @@ public class MovableCircle implements Movable, Cloneable, Comparable<MovableCirc
 
     @Override
     public void moveUp() {
-     center.setY(center.getY()+ center.getySpeed());
+    center.moveUp();
     }
 
     @Override
     public void moveDown() {
-  center.setY(center.getY()- center.getySpeed());
+    center.moveDown();
     }
 
     @Override
     public void moveLeft() {
-   center.setX(center.getX()- center.getxSpeed());
+    center.moveLeft();
     }
 
     @Override
     public void moveRight() {
-        center.setX(center.getX()+ center.getxSpeed());
+        center.moveRight();
     }
 
     @Override
@@ -56,10 +57,7 @@ public class MovableCircle implements Movable, Cloneable, Comparable<MovableCirc
 
     @Override
     public int compareTo(MovableCircle o) {
-        if(this.center.getX()!=o.center.getX()) return this.center.getX()-o.center.getX();
-        else {
-            return   this.center.getY()-o.center.getY();
-        }
+    return this.center.compareTo(o.center);
     }
 
 
